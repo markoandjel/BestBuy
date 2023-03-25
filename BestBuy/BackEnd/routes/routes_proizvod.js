@@ -8,9 +8,9 @@ const Tip_Proizvod= require('../model/tip_proizvod')
 router_proizvod.post('/post_proizvod',async(req,res)=>{
     const data = new Proizvod({
         naziv:req.body.naziv,
-        opis:req.body.adresa,
-        tip_proizvod:req.body.Tip_Proizvod.id,
-        proizvodjac:req.body.Proizvodjac.id,
+        opis:req.body.opis,
+        tip_proizvod:req.body.tip_proizvod,
+        proizvodjac:req.body.proizvodjac,
     })
     try{
         const dataToSave=await data.save()
