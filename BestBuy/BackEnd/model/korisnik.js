@@ -20,6 +20,11 @@ const dataSchema=new mongoose.Schema({
     password_hash:{
         type:String
     },
+    lista:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:'Proizvod_Proizvodjac',
+        required:true
+    }]
 
 })
 

@@ -1,11 +1,9 @@
 const express = require('express')
-const router_tip_proizvod = express.Router()
-const Prodavnica = require('../model/prodavnica')
-const Proizvod = require('../model/proizvod')
+const router = express.Router()
 const Tip_proizvod = require('../model/tip_proizvod')
 
 
-router_tip_proizvod.post('/post_tip_proizvod',async(req,res)=>{
+router.post('/post_tip_proizvod',async(req,res)=>{
     const data = new Tip_proizvod({
         naziv:req.body.naziv,
     })
@@ -19,7 +17,7 @@ router_tip_proizvod.post('/post_tip_proizvod',async(req,res)=>{
     }
 })
 
-router_tip_proizvod.get('/getAll_tip_proizvod',async(req,res)=>{{
+router.get('/getAll_tip_proizvod',async(req,res)=>{{
     try
     {
         const data = await Tip_proizvod.find()
@@ -31,7 +29,7 @@ router_tip_proizvod.get('/getAll_tip_proizvod',async(req,res)=>{{
     }
 }})
 
-router_tip_proizvod.get('/getOne_tip_proizvod/:id',async(req,res)=>{
+router.get('/getOne_tip_proizvod/:id',async(req,res)=>{
     try
     {
         const data = await Tip_proizvod.findById(req.params.id)
@@ -43,7 +41,7 @@ router_tip_proizvod.get('/getOne_tip_proizvod/:id',async(req,res)=>{
     }
 })
 
-router_tip_proizvod.patch('/update_tip_proizvod/:id',async(req,res)=>{
+router.patch('/update_tip_proizvod/:id',async(req,res)=>{
     try
     {
         const id = req.params.id
@@ -58,7 +56,7 @@ router_tip_proizvod.patch('/update_tip_proizvod/:id',async(req,res)=>{
     }
 })
 
-router_tip_proizvod.delete('/delete_tip_proizvod/:id',async(req,res)=>{
+router.delete('/delete_tip_proizvod/:id',async(req,res)=>{
     try
     {
         const id = req.params.id
@@ -71,6 +69,4 @@ router_tip_proizvod.delete('/delete_tip_proizvod/:id',async(req,res)=>{
     }
 })
 
-
-
-module.exports = router_tip_proizvod
+module.exports = router
