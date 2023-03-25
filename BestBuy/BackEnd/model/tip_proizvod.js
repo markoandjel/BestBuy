@@ -1,15 +1,13 @@
 const mongoose = require('mongoose')
 
 const dataSchema=new mongoose.Schema({
-    name:{
+    naziv:{
         required:true,
         type:String
     },
-    age:{
-        required:true,
-        type:Number
+    opis:{
+        type:String
     }
 })
 
-module.exports = mongoose.model("Data",dataSchema)
-
+module.exports = mongoose.model("Tip_proizvod",dataSchema)
