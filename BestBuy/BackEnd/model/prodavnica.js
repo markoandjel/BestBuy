@@ -11,10 +11,9 @@ const dataSchema=new mongoose.Schema({
     },
     telefon:{
         required:false,//vratiti posle na true
-        type: String,
-        match: /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/
+        type: String
     },
-    satj:{
+    sajt:{
         required:true,
         type:String
     }
