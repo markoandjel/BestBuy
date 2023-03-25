@@ -1,8 +1,8 @@
 const express = require('express')
-const router_prodavnica = express.Router()
+const router = express.Router()
 const Prodavnica = require('../model/prodavnica')
 
-router_prodavnica.post('/post_prodavnica',async(req,res)=>{
+router.post('/post_prodavnica',async(req,res)=>{
     const data = new Prodavnica({
         naziv:req.body.naziv,
         adresa:req.body.adresa,
@@ -19,7 +19,7 @@ router_prodavnica.post('/post_prodavnica',async(req,res)=>{
     }
 })
 
-router_prodavnica.get('/getAll_prodavnice',async(req,res)=>{{
+router.get('/getAll_prodavnice',async(req,res)=>{{
     try
     {
         const data = await Prodavnica.find()
@@ -31,7 +31,7 @@ router_prodavnica.get('/getAll_prodavnice',async(req,res)=>{{
     }
 }})
 
-router_prodavnica.get('/getOne_prodavnica/:id',async(req,res)=>{
+router.get('/getOne_prodavnica/:id',async(req,res)=>{
     try
     {
         const data = await Prodavnica.findById(req.params.id)
@@ -43,7 +43,7 @@ router_prodavnica.get('/getOne_prodavnica/:id',async(req,res)=>{
     }
 })
 
-router_prodavnica.patch('/update_prodavnica/:id',async(req,res)=>{
+router.patch('/update_prodavnica/:id',async(req,res)=>{
     try
     {
         const id = req.params.id
@@ -59,7 +59,7 @@ router_prodavnica.patch('/update_prodavnica/:id',async(req,res)=>{
 })
 
 //dodati brisanje za proizvod_prodavnicu
-router_prodavnica.delete('/delete_prodavnica/:id',async(req,res)=>{
+router.delete('/delete_prodavnica/:id',async(req,res)=>{
     try
     {
         const id = req.params.id
@@ -72,4 +72,4 @@ router_prodavnica.delete('/delete_prodavnica/:id',async(req,res)=>{
     }
 })
 
-module.exports = router_prodavnica
+module.exports = router

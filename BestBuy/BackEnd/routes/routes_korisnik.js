@@ -1,10 +1,16 @@
 const express = require('express')
 const router = express.Router()
-const Proizvodjac = require('../model/proizvodjac')
+const Korisnik = require('../model/korisnik')
 
-router.post('/post_proizvodjac',async(req,res)=>{
-    const data = new Proizvodjac({
-        ime:req.body.ime
+router.post('/post_korisnik',async(req,res)=>{
+    const data = new Korisnik({
+        ime:req.body.ime,
+        prezime:req.body.prezime,
+        email:req.body.email,
+        role:req.body.role,
+        username:req.body.username,
+        password_hash:req.body.password_hash,
+        lista:req.body.lista
     })
     try{
         const dataToSave=await data.save()
@@ -16,10 +22,10 @@ router.post('/post_proizvodjac',async(req,res)=>{
     }
 })
 
-router.get('/getAll_proizvodjaci',async(req,res)=>{{
+router.get('/getAll_korisnici',async(req,res)=>{{
     try
     {
-        const data = await Proizvodjac.find()
+        const data = await Korisnik.find()
         res.json(data)
     }
     catch(error)
@@ -28,10 +34,10 @@ router.get('/getAll_proizvodjaci',async(req,res)=>{{
     }
 }})
 
-router.get('/getOne_proizvodjac/:id',async(req,res)=>{
+router.get('/getOne_korisnik/:id',async(req,res)=>{
     try
     {
-        const data = await Proizvodjac.findById(req.params.id)
+        const data = await Korisnik.findById(req.params.id)
         res.json(data)
     }
     catch(error)
@@ -40,13 +46,13 @@ router.get('/getOne_proizvodjac/:id',async(req,res)=>{
     }
 })
 
-router.patch('/update_prozvodjac/:id',async(req,res)=>{
+router.patch('/update_korisnik/:id',async(req,res)=>{
     try
     {
         const id = req.params.id
         const updatedData=req.body
         const options = {new:true}
-        const result = await Proizvodjac.findByIdAndUpdate(id,updatedData,options)
+        const result = await Korisnik.findByIdAndUpdate(id,updatedData,options)
         res.send(result)
     }
     catch(error)
@@ -55,13 +61,12 @@ router.patch('/update_prozvodjac/:id',async(req,res)=>{
     }
 })
 
-//dodati brisanje za proizvoda
-router.delete('/delete_proizvodjac/:id',async(req,res)=>{
+router.delete('/delete_korisnik/:id',async(req,res)=>{
     try
     {
         const id = req.params.id
-        const data = await Proizvodjac.findByIdAndDelete(id)
-        res.send(`Proizvodjac sa imenom: ${data.ime} je obrisan`)
+        const data = await Korisnik.findByIdAndDelete(id)
+        res.send(`Korisnik sa username: ${data.username} je obrisan`)
     }
     catch(error)
     {
