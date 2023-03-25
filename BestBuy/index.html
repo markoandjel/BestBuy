@@ -1,0 +1,32 @@
+<html>
+<head>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+    <div x-data="getProdavnice()">
+        <button type="submit" @click="fetchProdavnice()":disabled="isLoading">pribavi Prodavnice</button>
+
+    </div>
+    
+</body>
+<script>
+    function getProdavnice(){
+        return 
+        {
+            isLoading:false,
+            prodavnice;
+            fetchProdavnice()
+            {
+                this.isLoading=true;
+                fetch(`https://localhost/getAll_prodavnice`)
+                .then(res=>res.json())
+                .then(data=>{
+                    this.isLoading=false;
+                    this.prodavnice=data;
+                })
+            }
+        
+        }
+    }
+</script>
+</html>
