@@ -13,9 +13,9 @@ const dataSchema=new mongoose.Schema({
         ref:'Tip_proizvod',
         required:true
     },
-    popust:{
+    proizvodjac:{
         type: mongoose.Schema.Types.ObjectId,
-        ref:'Popust',
+        ref:'Proizvodjac',
     }
 
 })
