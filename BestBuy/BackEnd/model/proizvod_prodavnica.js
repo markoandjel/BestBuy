@@ -17,6 +17,9 @@ const dataSchema=new mongoose.Schema({
     popust:{
         type:Number
     },
+    cena:{
+        type:Number
+    },
 
 })
 

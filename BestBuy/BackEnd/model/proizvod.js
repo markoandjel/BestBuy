@@ -16,6 +16,8 @@ const dataSchema=new mongoose.Schema({
     proizvodjac:{
         type: mongoose.Schema.Types.ObjectId,
         ref:'Proizvodjac',
+        required:true
+
     }
 
 })
