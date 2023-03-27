@@ -1,0 +1,33 @@
+.divZaNaslov{
+    background-color: aquamarine;
+    height: 5%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+html,body{
+    height: 100%;
+    padding:0px;
+    margin:0px;
+}
+
+title{
+    display: flex;
+    height: 100%;
+}
+
+.divGlavni{
+    background-color: rosybrown;
+    height: 95%;
+}
+
+.divPopularno{
+    height: 60%;
+    background-color: bisque;
+}
+
+.divOstaleKategorije{
+    height: 40%;
+    background-color: chocolate;
+}

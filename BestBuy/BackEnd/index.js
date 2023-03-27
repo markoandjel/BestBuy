@@ -18,14 +18,6 @@ http.createServer(app)
 .listen(3000,()=>{
     console.log(`Server Started at ${3000}`)
 })
-app.use(express.json())
-app.use('/',routes_prodavnica)
-app.use('/',routes_proizvodjac)
-app.use('/',routes_korisnik)
-app.use('/',routes_tip_proizvod)
-app.use('/',routes_proizvod)
-app.use('/',routes_proizvod_prodavnica)
-
 
 //CORS
 var corsOptions = {
@@ -34,6 +26,15 @@ var corsOptions = {
 }
 
 app.use(cors(corsOptions));
+
+app.use(express.json())
+app.use('/',cors(),routes_prodavnica)
+app.use('/',cors(),routes_proizvodjac)
+app.use('/',cors(),routes_korisnik)
+app.use('/',cors(),routes_tip_proizvod)
+app.use('/',cors(),routes_proizvod)
+app.use('/',cors(),routes_proizvod_prodavnica)
+
 
 mongoose.connect(mongoString)
 const db=mongoose.connection
