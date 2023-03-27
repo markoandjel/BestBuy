@@ -4,6 +4,8 @@ const routes_prodavnica=require('./routes/routes_prodavnica')
 const routes_proizvodjac=require('./routes/routes_proizvodjac')
 const routes_korisnik=require('./routes/routes_korisnik')
 const routes_tip_proizvod=require('./routes/routes_tip_proizvod')
+const routes_proizvod=require('./routes/routes_proizvod')
+const routes_proizvod_prodavnica=require('./routes/routes_proizvod_prodavnica')
 require('dotenv').config()
 const mongoString=process.env.DATABASE_URL
 
@@ -14,6 +16,8 @@ app.use('/',routes_prodavnica)
 app.use('/',routes_proizvodjac)
 app.use('/',routes_korisnik)
 app.use('/',routes_tip_proizvod)
+app.use('/',routes_proizvod)
+app.use('/',routes_proizvod_prodavnica)
 
 app.listen(3000,()=>{
     console.log(`Server Started at ${3000}`)

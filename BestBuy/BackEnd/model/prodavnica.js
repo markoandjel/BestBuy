@@ -10,7 +10,7 @@ const dataSchema=new mongoose.Schema({
         type:String
     },
     telefon:{
-        required:false,//vratiti posle na true
+        required:true,//vratiti posle na true
         type: String
     },
     sajt:{
