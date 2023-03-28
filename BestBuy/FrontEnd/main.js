@@ -10,7 +10,8 @@ document.body.appendChild(divZaNaslov)
 let naslov=document.createElement("title")
 naslov.innerHTML="BestBuy"
 naslov.addEventListener("click",()=>{
-
+    let p=document.querySelectorAll('.divPopularno')
+    if(p.length==0)
     main()
 })
 divZaNaslov.appendChild(naslov)
@@ -20,7 +21,11 @@ divZaNaslov.appendChild(naslov)
 let divGlavni = document.createElement('div')
 divGlavni.className = "divGlavni"
 document.body.appendChild(divGlavni)
-main()
+
+let p=document.querySelectorAll('.divPopularno')
+console.log(p)
+if(p.length==0){
+    main()}
 
 function main()
 {
@@ -85,10 +90,11 @@ function crtajKategorije(kategorije,host){
         divKategorijaKartica.innerHTML=k.naziv
         divKategorijaKartica.value=k.id
         divKategorijaKartica.addEventListener("click",()=>{
-            console.log(document.querySelector('.divGlavni'))
             var host=document.querySelector('.divGlavni')
-            var s=new SecondPage(host)
-            s.crtaj()
+            if(host!=null){
+                var s=new SecondPage(host)
+                s.crtaj()
+            }
         }
         )
         host.appendChild(divKategorijaKartica) 
@@ -150,8 +156,5 @@ function crtajPopularno(proizvod_prodavnica,host){
 
         host.appendChild(divZaProizvode)
     })
-    console.log(listaZaPrikaz)
-    
-    console.log(proizvod_prodavnica)
 }
 
