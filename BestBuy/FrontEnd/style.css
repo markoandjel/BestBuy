@@ -23,8 +23,11 @@ title{
 }
 
 .divPopularno{
+    display: flex;
+    flex-direction: row;
     height: 60%;
     background-color: bisque;
+    flex-wrap: wrap;
 }
 
 .divOstaleKategorije{
@@ -34,16 +37,16 @@ title{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    align-content: space-between;
 }
 
 .divKategorijaKartica{
     background-color: antiquewhite;
-    height: 50%;
+    height: 40%;
     width: 10%;
     text-align:center;
     margin: 5px;
     border-radius: 10px;
+
 }
 
 .divZaProizvode{
@@ -90,4 +93,26 @@ title{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.divZaOpcije{
+    width: 20%;
+    height: 100%;
+}
+
+.naslovKategorije{
+    font-size: x-large;
+    font-weight: 600;
+    padding: 15px;
+    width: 100%;
+    height: max-content;
+}
+
+.naslovProizvodjaca{
+    font-size: large;
+    font-weight: 400;
+    padding: 15px;
+    padding-top: 10px;
+    width: 100%;
+    height: max-content;
 }

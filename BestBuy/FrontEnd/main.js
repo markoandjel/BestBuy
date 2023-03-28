@@ -11,8 +11,10 @@ let naslov=document.createElement("title")
 naslov.innerHTML="BestBuy"
 naslov.addEventListener("click",()=>{
     let p=document.querySelectorAll('.divPopularno')
-    if(p.length==0)
-    main()
+    if(p.length==0){
+        removeAllChildNodes(document.querySelector('.divGlavni'))
+        main()
+    }
 })
 divZaNaslov.appendChild(naslov)
 
@@ -23,7 +25,6 @@ divGlavni.className = "divGlavni"
 document.body.appendChild(divGlavni)
 
 let p=document.querySelectorAll('.divPopularno')
-console.log(p)
 if(p.length==0){
     main()}
 
@@ -33,11 +34,6 @@ function main()
     let divPopularno = document.createElement('div')
     divPopularno.className = "divPopularno"
     divGlavni.appendChild(divPopularno)
-
-    let divNaslov = document.createElement('div')
-    divNaslov.className = "divNaslov"
-    divNaslov.innerHTML = "Popusti"
-    divPopularno.appendChild(divNaslov)
 
     var proizvod_prodavnica = []
     fetch("http://localhost:3000/getAll_proizvod_prodavnica")
@@ -92,7 +88,7 @@ function crtajKategorije(kategorije,host){
         divKategorijaKartica.addEventListener("click",()=>{
             var host=document.querySelector('.divGlavni')
             if(host!=null){
-                var s=new SecondPage(host)
+                var s=new SecondPage(host,k.id)
                 s.crtaj()
             }
         }
@@ -103,11 +99,12 @@ function crtajKategorije(kategorije,host){
 
 function crtajPopularno(proizvod_prodavnica,host){
 
-    var sortiranaLista=proizvod_prodavnica.sort((a,b)=>a.popust>b.popust)
-    var listaZaPrikaz=sortiranaLista.slice(0,15)
+    var sortiranaLista=proizvod_prodavnica.sort((a,b)=>b.popust-a.popust)
+    var listaZaPrikaz=sortiranaLista.slice(0,8)
     listaZaPrikaz.forEach(l=>{
         let divZaProizvode=document.createElement('div')
         divZaProizvode.className="divZaProizvode"
+        divZaProizvode.addEventListener("click",()=>alert("dsfa"))
         let divZaSliku=document.createElement('div')
         divZaSliku.className="divZaSliku"
         divZaSliku.innerHTML="SLIKA"
@@ -138,7 +135,13 @@ function crtajPopularno(proizvod_prodavnica,host){
         divZaInformacije.appendChild(labelZaInformaciju);
 
         var labelZaInformaciju=document.createElement("label");
-        labelZaInformaciju.innerHTML=Math.round(l.cena*100/l.popust*100)/100
+        if(l.popust!=0)
+        {   
+            labelZaInformaciju.innerHTML=Math.round(l.cena*100/l.popust*100)/100
+        }else{
+            labelZaInformaciju.innerHTML=l.cena
+
+        }
         divZaInformacije.appendChild(labelZaInformaciju);
 
         fetch(`http://localhost:3000/getOne_prodavnica/${l.prodavnica}`)
