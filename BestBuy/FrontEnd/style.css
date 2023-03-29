@@ -116,3 +116,52 @@ title{
     width: 100%;
     height: max-content;
 }
+.divProizvodjac{
+    padding-left: 10px;
+}
+
+.divZaCenu{
+    padding-top: 15px;
+    padding-left: 10px;
+    font-size: larger;
+    font-weight: 500;
+}
+.UnosCene{
+    width: 80%;
+}
+
+.dugmeZaFiltere{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.divZaPrikaz{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+.divcinaZaProizvode{
+    height: 100%;
+    width: 100%;
+}
+
+.divZaOpis{
+    display: flex;
+    flex-direction: column;
+}
+
+.labelaCena, .labelBrojProdavnica{
+    margin-top: 5px;
+    text-align: center;
+}
+
+.dugmeUporedi{
+    margin-top: 5px;
+    align-self: center;
+    width: 70%;
+}
+
+.divZaCenu{
+    display: flex;
+    flex-direction: column;
+}
