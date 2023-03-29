@@ -38,26 +38,39 @@ export class SecondPage
         divZaOpcije.appendChild(naslovProizvodjaca)
         
         var proizvodjaci=[]
+        var pom = []
         fetch(`http://localhost:3000/getAll_proizvodi`)
             .then(p => {
                 p.json().then(
                     data => {
                         data.forEach(el => {
+                                
                             if (el.tip_proizvod == this.kategorijaID) {
                                 fetch(`http://localhost:3000/getAll_proizvodjaci`)
                                     .then(p => {
-                                        p.json().then(data2=>
+                                        p.json().then(data2=>{
                                             data2.forEach(el=>{
-                                                var p=new Proizvodjac(el._id,el.naziv)
-                                                proizvodjaci.push(p)
+                                                var p=new Proizvodjac(el._id,el.ime)
+                                                proizvodjaci.push(p)   
                                             })
-                                            
-
-                                        )
+                                            //this.crtajBoxove(proizvodjaci,divZaOpcije)
+                                            proizvodjaci.forEach(proiz => {
+                                                console.log(proiz)
+                                                console.log(el)
+                                                console.log(proiz.id)
+                                                console.log(el.proizvodjac)
+                                                console.log(el.proizvodjac===proiz.id)                                              
+                                            if(proiz.id === el.proizvodjac)
+                                            {   
+                                                pom.push(proiz)
+                                                this.crtajBoxove(pom,divZaOpcije)
+                                            }
                                         
-                                        
+                                        })                    
+                                    })                                                                           
                                 })
-                                console.log(proizvodjaci[0]) 
+                                
+                               
                             }
                         });
                     }
@@ -69,5 +82,26 @@ export class SecondPage
 
     }
 
+    crtajBoxove(box,host)
+    {
+        box.forEach(k=>{
+            let divProizvodjac=document.createElement('div')
+            divProizvodjac.className="divProizvodjac"
+            divProizvodjac.innerHTML=k.naziv
+            divProizvodjac.value=k.id
+
+            let checkbox1 = document.createElement('input');
+            checkbox1.type = 'checkbox';
+            checkbox1.className = k.naziv+"CBox";
+            divProizvodjac.appendChild(checkbox1);
+
+            let label1 = document.createElement('label');
+            label1.innerHTML = k.naziv;
+            divProizvodjac.appendChild(label1);
+
+            host.appendChild(divProizvodjac) 
+            })
+            
+    }
 
 }
