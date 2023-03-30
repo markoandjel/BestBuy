@@ -225,8 +225,6 @@ export class SecondPage
                                         nizFiltriranihProizvoda.push(t)
                                     }
                                 }
-                                proiz_prod=nizFiltriranihProizvoda
-                                //console.log(this.sviProizvodi,this.filteri[2])
                                 let divZaProizvode = document.createElement('div')
                                 divZaProizvode.className = "divZaProizvode"
 

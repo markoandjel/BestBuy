@@ -165,3 +165,81 @@ title{
     display: flex;
     flex-direction: column;
 }
+
+.divKarticaZaPonudu{
+    display: flex;
+    flex-direction: column;
+    background-color:azure;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+.divKartica{
+    display: flex;
+    flex-direction: row;
+    background-color: brown;
+    width: 95%;
+    border-radius: 10px;
+    height: 40px;
+    margin: 10px;
+}
+.divProizvod{
+    display: flex;
+    align-content: space-around;
+    width: 100%;
+    height: 30%;
+    background-color: cadetblue;
+}
+
+.divZaSlikuProizvoda{
+    background-color: cyan;
+    width: 30%;
+    height: 90%;
+    text-align: center;
+    font-size: x-large;
+    font-weight: 700;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.divZaOpisProizvodaPonuda{
+    background-color: burlywood;
+    width: 100%;
+    height: 90%;
+    margin: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.divZaNaslovProizovda{
+    text-align: left;
+    font-size: x-large;
+    font-weight: 800;
+}
+
+.divOpis{
+    text-align: left;
+    font-size: large;
+    font-weight: 600;
+}
+.divNaStanju{
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: aqua;
+}
+.divKartica{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.divKartica label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
