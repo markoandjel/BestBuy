@@ -1,19 +1,6 @@
 const mongoose = require('mongoose')
 
 const dataSchema=new mongoose.Schema({
-    ime:{
-        required:true,
-        type:String
-    },
-    prezime:{
-        type:String
-    },
-    email:{
-        type:String
-    },
-    role:{
-        type:Number
-    },
     username:{
         type:String
     },
@@ -22,8 +9,8 @@ const dataSchema=new mongoose.Schema({
     },
     lista:[{
         type: mongoose.Schema.Types.ObjectId,
-        ref:'Proizvod_Proizvodjac',
-        required:true
+        ref:'Proizvod_Prodavnica',
+        required:false
     }]
 
 })
