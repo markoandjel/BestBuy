@@ -2,7 +2,7 @@ BestBuy
 =======
 Instalacija
 -------------
-Potrebno je instalirati sledeće pakete
+Potrebno je instalirati sledeće pakete unutar BackEnd foldera
 ```bash
 npm i express mongoose nodemon dotenv cors
 ```
