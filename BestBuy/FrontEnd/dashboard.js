@@ -2,40 +2,30 @@ import {Prodavnica} from './prodavnica.js'
 import { Kategorija } from './kategorija.js'
 import {Proizvod_prodavnica} from './proizvod_prodavnica.js'
 import { SecondPage } from './secondpage.js'
+import {LogInPage} from './login.js'
+import {RegisterPage} from './register.js'
+export class Dashboard {
 
 
-let divZaNaslov=document.createElement("div")
-divZaNaslov.className="divZaNaslov"
-document.body.appendChild(divZaNaslov)
-
-let naslov=document.createElement("title")
-naslov.innerHTML="BestBuy"
-naslov.addEventListener("click",()=>{
-    let p=document.querySelectorAll('.divPopularno')
-    if(p.length==0){
-        removeAllChildNodes(document.querySelector('.divGlavni'))
-        main()
-    }
-})
-divZaNaslov.appendChild(naslov)
-
-
-//glavni deo
-let divGlavni = document.createElement('div')
-divGlavni.className = "divGlavni"
-document.body.appendChild(divGlavni)
-
-
-let p=document.querySelectorAll('.divPopularno')
-if(p.length==0){
-    main()}
-
-function main()
-{   
-    //popularni deo
+    
+    crtajDash(host){
+        let divZaNaslov=document.createElement("div")
+        divZaNaslov.className="divZaNaslov"
+        document.body.appendChild(divZaNaslov)
+        
+        let naslov=document.createElement("title")
+        naslov.innerHTML="BestBuy"
+        naslov.addEventListener("click",()=>{
+            let p=document.querySelectorAll('.divPopularno')
+            if(p.length==0){
+                removeAllChildNodes(document.querySelector('.divGlavni'))
+                main()
+            }
+        })
+        divZaNaslov.appendChild(naslov)
     let divPopularno = document.createElement('div')
     divPopularno.className = "divPopularno"
-    divGlavni.appendChild(divPopularno)
+    host.appendChild(divPopularno)
 
     var proizvod_prodavnica = []
     fetch("http://localhost:3000/getAll_proizvod_prodavnica")
@@ -55,7 +45,7 @@ function main()
     //ostale kategorije
     let divOstaleKategorije = document.createElement('div')
     divOstaleKategorije.className = "divOstaleKategorije"
-    divGlavni.appendChild(divOstaleKategorije)
+    host.appendChild(divOstaleKategorije)
 
     var kategorije = []
     fetch("http://localhost:3000/getAll_tip_proizvod")
@@ -73,7 +63,7 @@ function main()
 
 
 }
-
+}
 
 export function removeAllChildNodes(parent){
     while (parent.firstChild) {
@@ -162,4 +152,3 @@ function crtajPopularno(proizvod_prodavnica,host){
         host.appendChild(divZaProizvode)
     })
 }
-
